@@ -27,15 +27,21 @@
 
 ### Home Page
 <img src="img/Home.png" alt="Home Page">
+
 ### Detail Page
 <img src="img/Detail.png" alt="Detail Page">
+
 ### Dashboard Page
 <img src="img/Dashboard.png" alt="Dashboard Page">
+
 ### Add Page
 <img src="img/Add.png" alt="Add Page">
+
 ### Profile Page
 <img src="img/Profile.png" alt="Profile Page">
+
 ### Login Page
 <img src="img/Login.png" alt="Login Page">
+
 ### Register Page
 <img src="img/Register.png" alt="Register Page">
