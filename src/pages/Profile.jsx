@@ -1,6 +1,6 @@
 import { Avatar, Button } from "flowbite-react";
 import React from "react";
-import InputForm from "./InputForm";
+import InputForm from "../components/InputForm";
 
 export default function Profile() {
   return (
@@ -16,7 +16,7 @@ export default function Profile() {
         <div className="mt-5 flex items-center gap-5">
           <div className="flex gap-2">
             <Avatar
-              alt="User settings"
+              // alt="User settings"
               img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
               rounded
             />

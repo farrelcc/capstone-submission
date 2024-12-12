@@ -2,9 +2,9 @@ import { Label, TextInput } from "flowbite-react";
 import React from "react";
 
 export default function InputForm({
-  type = "text",
+  placeholder = "",
   label = "Name",
-  placeholder,
+  ...rest
 }) {
   return (
     <div>
@@ -15,7 +15,7 @@ export default function InputForm({
           value={label}
         />
       </div>
-      <TextInput placeholder={placeholder} id="small" type={type} sizing="md" />
+      <TextInput {...rest} placeholder={placeholder} id="small" sizing="md" />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { Avatar, Button } from "flowbite-react";
 import React from "react";
-import InputForm from "./InputForm";
+import InputForm from "../components/InputForm";
 
 export default function AddPlace() {
   return (

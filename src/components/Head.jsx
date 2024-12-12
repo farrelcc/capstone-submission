@@ -1,7 +1,7 @@
 import { Avatar, Dropdown } from "flowbite-react";
 import React from "react";
 
-export default function Head({ auth = true }) {
+export default function Head({ auth = false }) {
   return (
     <div
       className="w-full  flex items-center justify-between px-3 sm:px-5 h-[70px] 

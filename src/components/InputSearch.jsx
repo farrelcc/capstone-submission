@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoLocation, IoLocationOutline, IoSearch } from "react-icons/io5";
+import { useStore } from "../store/store";
 
-export default function InputSearch() {
+export default function InputSearch({ setInputSearch, onSubmit }) {
+  const setLocationUser = useStore((state) => state.setLocationUser);
+  const [inputValue, setInputValue] = useState("");
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setInputSearch(inputValue);
+    if (onSubmit) onSubmit(); // Panggil fungsi onSubmit
+  };
+
   const handleLocationClick = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          console.log("Latitude:", latitude, "Longitude:", longitude);
-          alert(
-            `Your location is Latitude: ${latitude}, Longitude: ${longitude}`
-          );
+          setLocationUser(latitude, longitude);
+          alert(`Posisi Anda sudah di Set`);
         },
         (error) => {
           switch (error.code) {
@@ -37,23 +45,31 @@ export default function InputSearch() {
   };
   return (
     <div className="flex justify-center relative -top-[35px]">
-      <div className="w-[90%] h-[70px] p-2 bg-white rounded-[10px] shadow flex justify-start items-center gap-2.5">
+      <form
+        onSubmit={handleClick}
+        className="w-[90%] h-[50px] sm:h-[70px] p-2 bg-white rounded-[10px] shadow flex justify-start items-center gap-2.5"
+      >
         {/* location */}
         <button
+          type="button"
           onClick={handleLocationClick}
-          className="flex justify-center items-center w-max h-full px-5 border-r-[1.5px] border-gray-200 text-2xl"
+          className="flex justify-center items-center w-max h-full px-2 sm:px-5 border-r-[1.5px] border-gray-200 text-lg sm:text-2xl"
         >
           <IoLocationOutline />
         </button>
         <input
+          onChange={(e) => setInputValue(e?.target?.value)}
           type="text"
-          className="h-full w-full text-1xl placeholder:text-1xl border-none outline-none focus:ring-0"
-          placeholder="Search  UMKM , Tempat Makan, Pelayanan Umum...."
+          className="h-full w-full placeholder:text-1xl border-none outline-none focus:ring-0"
+          placeholder="Search  Nama Tempat"
         />
-        <button className="h-full bg-primary text-white font-semibold rounded-md px-5 text-3xl">
+        <button
+          type="submit"
+          className="h-full bg-primary text-white font-semibold rounded-md px-2 sm:px-5 text-xl sm:text-3xl"
+        >
           <IoSearch />
         </button>
-      </div>
+      </form>
     </div>
   );
 }

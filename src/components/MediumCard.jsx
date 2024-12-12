@@ -1,7 +1,9 @@
 import React from "react";
+import { FiTrendingUp } from "react-icons/fi";
 import { IoLocationOutline } from "react-icons/io5";
+import { limitWords } from "../utils/LimitWord";
 
-export default function MediumCard() {
+export default function MediumCard({ data }) {
   return (
     <div className="w-full border-[1.5px] border-gray-100 p-2.5 rounded-md shadow-md h-32  overflow-hidden flex gap-2">
       {/* img */}
@@ -15,23 +17,23 @@ export default function MediumCard() {
       <div className="flex overflow-hidden flex-col justify-between">
         <div>
           {/* title */}
-          <div className="font-semibold">
-            <h2>Lorem ipsum dolor sit amet</h2>
+          <div className="font-semibold text-[0.9rem] sm:text-[1rem]">
+            <h2>{limitWords(data["Place Name"], 3)}</h2>
           </div>
           {/* desc */}
-          <div className="text-xs text-gray-600 mt-1 overflow-hidden">
+          <div className="sm:text-xs text-[0.6rem] text-gray-600 mt-1 overflow-hidden">
             <p>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe
-              maxime incidunt aperiam...
+              maxime ...
             </p>
           </div>
         </div>
         {/* info */}
         <div className="flex text-[0.7rem] mt-1.5 text-gray-500 gap-1 items-center">
           <span>
-            <IoLocationOutline />
+            <FiTrendingUp />
           </span>
-          <h3 className="">{"Bali, Indonesia"}</h3>
+          <h3 className="">{data["Distance (km)"]} km</h3>
         </div>
       </div>
     </div>
