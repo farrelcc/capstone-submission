@@ -1,0 +1,46 @@
+<html>
+<head>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+<script type="module" src="main.js"></script>
+</head> 
+<body>
+    <h1>Sistem Rekomendasi</h1>
+    <form id="form-prediction">
+        <h4>Masukkan rating mu untuk beberapa kategori berikut (1-5)</h4>
+        <label for="input">Bahari:</label>
+        <input type="number" id="bahari" step="0.1" min="0" max="5" value="0" required>
+
+        <label for="input">Budaya:</label>
+        <input type="number" id="budaya" step="0.1" min="0" max="5" value="0" required>
+
+        <label for="input">Cagar Alam:</label>
+        <input type="number" id="cagar" step="0.1" min="0" max="5" value="0" required>
+
+        <label for="input">Pusat Perbelanjaan:</label>
+        <input type="number" id="pusat" step="0.1" min="0" max="5" value="0" required>
+
+        <label for="input">Taman Hiburan:</label>
+        <input type="number" id="taman" step="0.1" min="0" max="5" value="0" required>
+
+        <label for="input">Tempat Ibadah:</label>
+        <input type="number" id="ibadah" step="0.1" min="0" max="5" value="0" required>
+
+        <h4>Location (ubah seusai lokasi dan radius yang kamu inginkan)</h4>
+        <label for="input">Latitude:</label>
+        <input type="number" id="lat" step="0.000000000000001" value="-7.799438469931893" required>
+
+        <label for="input">Longitude:</label>
+        <input type="number" id="lon" step="0.000000000000001" value="110.36847049152439" required>
+
+        <label for="input">Radius:</label>
+        <input type="number" id="radius" value="10" required><br><br>
+
+        <h4>Lakukan prediksi</h4>
+
+        <button type="submit" id="buttonprediksi">Prediksi</button>
+    </form>
+    <h1>Hasil Prediksi</h1>
+    <div id="result"></div>
+</body>   
+</html>
