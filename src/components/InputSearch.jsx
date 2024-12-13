@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IoLocation, IoLocationOutline, IoSearch } from "react-icons/io5";
 import { useStore } from "../store/store";
+import { Tooltip } from "flowbite-react";
 
 export default function InputSearch({ setInputSearch, onSubmit }) {
   const setLocationUser = useStore((state) => state.setLocationUser);
@@ -50,13 +51,15 @@ export default function InputSearch({ setInputSearch, onSubmit }) {
         className="w-[90%] h-[50px] sm:h-[70px] p-2 bg-white rounded-[10px] shadow flex justify-start items-center gap-2.5"
       >
         {/* location */}
-        <button
-          type="button"
-          onClick={handleLocationClick}
-          className="flex justify-center items-center w-max h-full px-2 sm:px-5 border-r-[1.5px] border-gray-200 text-lg sm:text-2xl"
-        >
-          <IoLocationOutline />
-        </button>
+        <Tooltip content="Set Lokasi Anda">
+          <button
+            type="button"
+            onClick={handleLocationClick}
+            className="flex justify-center items-center w-max h-full px-2 sm:px-5 border-r-[1.5px] border-gray-200 text-lg sm:text-2xl"
+          >
+            <IoLocationOutline />
+          </button>
+        </Tooltip>
         <input
           onChange={(e) => setInputValue(e?.target?.value)}
           type="text"

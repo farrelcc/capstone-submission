@@ -5,7 +5,10 @@ import { limitWords } from "../utils/LimitWord";
 
 export default function MediumCard({ data }) {
   return (
-    <div className="w-full border-[1.5px] border-gray-100 p-2.5 rounded-md shadow-md h-32  overflow-hidden flex gap-2">
+    <a
+      href={data ? `/detail/${data["Place ID"]}` : "#"}
+      className="w-full border-[1.5px] border-gray-100 p-2.5 rounded-md shadow-md h-32  overflow-hidden flex gap-2"
+    >
       {/* img */}
       <div className="w-[40%] rounded-md overflow-hidden h-full flex-shrink-0">
         <img
@@ -36,6 +39,6 @@ export default function MediumCard({ data }) {
           <h3 className="">{data["Distance (km)"]} km</h3>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
